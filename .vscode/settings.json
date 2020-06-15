@@ -1,0 +1,26 @@
+{
+    "files.associations": {
+        "header.h": "c",
+        "sys.h": "c",
+        "stm32f10x_gpio.h": "c",
+        "stdint.h": "c"
+    },
+    
+    "search.exclude": {       
+        "**/Objects": true,
+        "**/Listings": true,
+        "**/USER/*.scvd": true,
+        "**/USER/*.Administrator": true,
+        "**/USER/*.uvoptx": true,
+        "**/USER/*.uvprojx": true,
+    },
+
+    "files.exclude": {
+        "**/Objects": true,
+        "**/Listings": true, 
+        "**/USER/*.scvd": true,
+        "**/USER/*.Administrator": true,
+        "**/USER/*.uvoptx": true,
+        "**/USER/*.uvprojx": true,
+    }
+}

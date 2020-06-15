@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/SYSTEM/sys",
+                "${workspaceFolder}/SYSTEM/delay",
+                "${workspaceFolder}/SYSTEM/usart",
+                "${workspaceFolder}/CORE",
+                "${workspaceFolder}/STM32F10xx_FWLib/inc",
+                "${workspaceFolder}/USER",
+                "${workspaceFolder}/HARDWARE",
+                "D:/Keil/MDK-ARM/ARM/ARMCLANG/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}
