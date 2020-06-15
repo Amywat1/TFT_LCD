@@ -269,7 +269,21 @@ void LcdInit(void)
 	FSMC_NORSRAMCmd(FSMC_Bank1_NORSRAM4,ENABLE);									//使能NORSRAM的bank1,4区块
 
 	delay_ms(50);
-	lcdParamater.id = LCD_ReadReg(0x0000);					//读ID
+	lcdParamater.id = LcdReadReg(0x0000);					//读ID
+	if(lcdParamater.id<0XFF||lcdParamater.id==0XFFFF||lcdParamater.id==0X9300)//读到ID不正确,新增lcddev.id==0X9300判断，因为9341在未被复位的情况下会被读成9300
+	{
+		LcdWriteReg(0XDA00);	
+		lcdParamater.id=LcdReadData();		//读回0X00	 
+		LcdWriteReg(0XDB00);	
+		lcdParamater.id=LcdReadData();		//读回0X80
+		lcdParamater.id<<=8;	
+		LcdWriteReg(0XDC00);	
+		lcdParamater.id|=LcdReadData();		//读回0X00		
+		if(lcdParamater.id==0x8000)
+		{
+			lcdParamater.id=0x5510;//NT35510读回的ID是8000H,为方便区分,我们强制设置为5510
+		}
+	}
 
 	printf(" LCD ID:%x\r\n",lcdParamater.id);				//打印LCD ID 
 
